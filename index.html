@@ -18,9 +18,11 @@
           <h1>To-Do List</h1>
           <div class="input-list">
             <label id="window-label">
-              <input class="window-input" name="Note" type="text"
-            /></label>
-            <div class="box-btn-del"><button type="button" class="btn-delete">X</button></div>
+              <div class = "string-for-text">
+              <input class="window-input" name="Note" type="text"/>
+              <button onclick="deleteWindow(this);" type="button" class="btn-delete">X</button>
+            </div>
+            </label>
           </div>
           <button class="btn-append">
             <div class="icon-plus">+</div>

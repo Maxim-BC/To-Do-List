@@ -17,7 +17,10 @@ h1 {
     border-radius: 10px;
     border: 1px solid grey;
 }
-
+#window-label {
+    flex-direction: column;
+    display: flex;
+}
 .window-input {
     min-width: 200px;
     min-height: 30px;
@@ -30,7 +33,10 @@ h1 {
     border-radius:10px;
     border: 1px solid grey;
     display: flex;
-    
+}
+
+.string-for-text {
+    display: flex;
 }
 
 input {
@@ -69,13 +75,9 @@ input {
     border-radius: 71px;
     font-style: border;
 }
-.box-btn-del {
-    margin-right: 30px;
-    display: flex;
-    flex-direction: column;
-}
+
+
 .btn-delete {
-    
     margin-left: 10px;
     margin-top: 5px;
     margin-bottom: 7px;
