@@ -1,170 +1,89 @@
 const form = document.querySelector("form");
-const windowLabel = document.querySelector("#window-label")
-const boxBtnDel = document.querySelector(".box-btn-del")
-const btnDelete = document.querySelector(".btn-delete")
+const ulList = document.querySelector(".ul-list");
+const btnDelete = document.querySelector(".btn-delete");
+const btnAppend = document.querySelector(".btn-append");
+const btnSort = document.querySelector("#sort-btn-down");
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();  
-    
-    let newNote = document.createElement('input');
+btnAppend.addEventListener("click", (e) => {
+  let newInput = document.createElement("input");
+  let newLi = document.createElement("li");
 
-    let newBoxString = document.createElement('div');
+  ulList.append(newLi);
+  newLi.append(newInput);
 
-    windowLabel.append(newBoxString);
-    newBoxString.append(newNote);
-    
-    const note = newNote.classList;
-    note.add("window-input")
-    
+  newInput.classList.add("window-input");
 
-    let newBtnDelete = document.createElement('button');
-    newBtnDelete.innerHTML = "X";
-
-    newBtnDelete.setAttribute("onclick", "deleteWindow(this)");
-
-    newBoxString.append(newBtnDelete);
-    const btnDel = newBtnDelete.classList;
-    btnDel.add("btn-delete")  
-
-
-    const boxString = newBoxString.classList;
-    boxString.add("string-for-text");
-
-    
+  let newBtnDelete = document.createElement("button");
+  newBtnDelete.innerHTML = "X";
+  newBtnDelete.setAttribute("onclick", "deleteWindow(this)");
+  newLi.append(newBtnDelete);
+  newBtnDelete.classList.add("btn-delete");
+  newLi.classList.add("string-for-text");
 });
 
 function deleteWindow(element) {
-    const nextEl = element.nextElementSibling
-    const elemPrevious = element.previousElementSibling
-    const parentEl = element.parentElement;
-    parentEl.remove();
-    elemPrevious.remove();
-    nextEl.remove();
+  const parentEl = element.parentElement;
+  parentEl.remove();
 }
 
-
-
-
-
-
-// function deleteWindow() {
-//     windowLabel.remove();
-//   }
-//   btnDelete.addEventListener('click', deleteWindow);
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//--------------------------------------SORT------------------------------------------------
+let src = btnSort.src;
+let nameSrc = src.split("/").pop();
+
+btnSort.addEventListener("click", () => {
+  const list = [...document.querySelectorAll(".string-for-text")];
+  if (nameSrc === "Sort_down.svg") {
+    nameSrc = "Sort_up.svg";
+    btnSort.src = "img/Sort_up.svg";
+    list.sort((a, b) => {
+      const first = a.querySelector("input").value;
+      const second = b.querySelector("input").value;
+      if (first < second) {
+        return -1;
+      } else if (first > second) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  } else {
+    btnSort.src = "img/Sort_down.svg";
+    nameSrc = "Sort_down.svg";
+    list.sort((a, b) => {
+      const first = a.querySelector("input").value;
+      const second = b.querySelector("input").value;
+      if (first > second) {
+        return -1;
+      } else if (first < second) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  }
+  list.forEach((newLi) => {
+    ulList.append(newLi);
+  });
+});
+
+// sortBtnDown.addEventListener('click', () => {
+//     form.get('Name')
+//   alert(inputText.value);
+// });
+
+//  form.addEventListener('submit', (event) => {
+//         event.preventDefault();
+
+//         const data = new FormData(event.target);
+
+//         console.log(data.get('Name'));
+//       });
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-// let newNote = document.createElement('input');
-//     windowLabel.append(newNote);
-//     const note = newNote.classList;
+// let newInut = document.createElement('input');
+//     windowLabel.append(newInut);
+//     const note = newInut.classList;
 //     note.add("window-input")
 
 //     let newBtnDelete = document.createElement('button');
@@ -172,5 +91,5 @@ function deleteWindow(element) {
 //     newBtnDelete.innerHTML = "X";
 //     boxBtnDel.append(newBtnDelete);
 //     const btnDel = newBtnDelete.classList;
-//     btnDel.add("btn-delete")   
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//     btnDel.add("btn-delete")
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -8,6 +8,11 @@ body {
     min-height: 500px;
     max-height: 800px;
 }
+
+.content {
+    margin-bottom: 100px;
+}
+
 h1 {
     text-align: center;
 }
@@ -17,10 +22,7 @@ h1 {
     border-radius: 10px;
     border: 1px solid grey;
 }
-#window-label {
-    flex-direction: column;
-    display: flex;
-}
+
 .window-input {
     min-width: 200px;
     min-height: 30px;
@@ -28,11 +30,11 @@ h1 {
     width: auto;
 }
 
-.input-list {
-    margin: 42px 22px 18px 28px;
+.ul-list {
+    padding-left: 27px;
+    margin: 13px 22px 18px 28px;
     border-radius:10px;
     border: 1px solid grey;
-    display: flex;
 }
 
 .string-for-text {
@@ -42,7 +44,6 @@ h1 {
 input {
     height: 40px;
     width: 286px;
-    padding-left: 20px;
     border-radius: 10px;
     border: none;
 }
@@ -66,8 +67,7 @@ input {
     align-items: center;
     justify-content: center;
     display: flex;
-    top:1px;
-    right: 15px;
+    right: 17px;
     position: relative;
     width: 40px;
     height: 40px;
@@ -78,9 +78,7 @@ input {
 
 
 .btn-delete {
-    margin-left: 10px;
-    margin-top: 5px;
-    margin-bottom: 7px;
+    margin: 5px 30px 7px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,4 +88,20 @@ input {
     border: 1px solid; 
     border-radius: 71px;
 }
+.yellow-stripe {
+    border-radius: 10px 10px 0px 0px;
+    background-color: rgb(221, 221, 4);
+    height: 28px;
+}
+#sort-btn-down {
+    margin-left: 281px;
+    cursor: pointer;
+    opacity: 0.25;  
+}
+
+#sort-btn-down:hover {
+    opacity: 1;
+}
+
+
 
