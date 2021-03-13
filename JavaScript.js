@@ -1,10 +1,15 @@
 const form = document.querySelector("form");
-const ulList = document.querySelector(".ul-list");
 const btnDelete = document.querySelector(".btn-delete");
 const btnAppend = document.querySelector(".btn-append");
 const btnSort = document.querySelector("#sort-btn-down");
+const ulList = document.querySelector(".task-list");
 
 btnAppend.addEventListener("click", (e) => {
+  console.log(ulList.children.length);
+  if (ulList.children.length === 0) {
+    ulList.innerText = "";
+    ulList.classList.add("task-list");
+  }
   let newInput = document.createElement("input");
   let newLi = document.createElement("li");
 
@@ -14,15 +19,19 @@ btnAppend.addEventListener("click", (e) => {
   newInput.classList.add("window-input");
 
   let newBtnDelete = document.createElement("button");
-  newBtnDelete.innerHTML = "X";
-  newBtnDelete.setAttribute("onclick", "deleteWindow(this)");
+  newBtnDelete.innerHTML = "&times;";
+  newBtnDelete.setAttribute("onclick", "deleteTask(this)");
   newLi.append(newBtnDelete);
   newBtnDelete.classList.add("btn-delete");
   newLi.classList.add("string-for-text");
 });
 
-function deleteWindow(element) {
+function deleteTask(element) {
   const parentEl = element.parentElement;
+  if (ulList.children.length === 1) {
+    ulList.classList.remove("task-list");
+    ulList.innerText = "The to-do list is empty...";
+  } 
   parentEl.remove();
 }
 

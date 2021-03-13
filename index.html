@@ -20,21 +20,24 @@
 
           <img id="sort-btn-down" src="img/Sort_down.svg" alt="sort" />
 
-          <ul class="ul-list">
+          <ul class="task-list">
             <li class="string-for-text">
               <input class="window-input" name="Note" type="text" />
               <button
-                onclick="deleteWindow(this);"
+                onclick="deleteTask(this);"
                 type="button"
-                class="btn-delete">
-                X
+                class="btn-delete"
+              >
+              &times;
               </button>
             </li>
           </ul>
-          <button type="button" class="btn-append">
-            <div class="icon-plus">+</div>
-            Добавить
-          </button>
+          <div id="box-btn-append">
+            <button type="button" class="btn-append">
+              <div class="icon-plus">+</div>
+              Добавить
+            </button>
+          </div>
         </form>
       </div>
     </main>
