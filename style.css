@@ -28,6 +28,8 @@ h1 {
 }
 
 .window-input {
+  padding-left: 27px;
+  cursor: -moz-grab;
   min-width: 200px;
   min-height: 30px;
   height: auto;
@@ -39,10 +41,6 @@ h1 {
   margin: 13px 22px 18px 28px;
   border-radius: 10px;
   border: 1px solid grey;
-}
-
-.string-for-text {
-  display: flex;
 }
 
 input {
@@ -118,4 +116,26 @@ input {
 
 .hideOfBorder {
   border: 0px;
+}
+
+.selected {
+  opacity: 0.6;
+}
+
+.task-string {
+  display: flex;
+  border: 1px solid #c4c4c4;
+  width: 283px;
+  position: relative;
+  right: 27px;
+  transition: background-color 0.5s;
+}
+
+.task-string:first-child {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.task-string:last-child {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
