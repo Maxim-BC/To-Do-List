@@ -49,6 +49,21 @@ btnAppend.addEventListener("click", (e) => {
     if (!isMoveable) {
       return;
     }
+
+    const getNextElement = (cursorPosition, currentElement) => {
+      // Получаем объект с размерами и координатами
+      const currentElementCoord = currentElement.getBoundingClientRect();
+      // Находим вертикальную координату центра текущего элемента
+      console.log(currentElement.getBoundingClientRect());
+      const currentElementCenter = currentElementCoord.y + currentElementCoord.height / 2;
+    
+      // Если курсор выше центра элемента, возвращаем текущий элемент
+      // В ином случае — следующий DOM-элемент
+      const nextElement = (cursorPosition < currentElementCenter) ?
+          currentElement :
+          currentElement.nextElementSibling;
+      return nextElement;
+    };
     // evt.clientY — вертикальная координата курсора в момент,
     // когда сработало событие
     const nextElement = getNextElement(evt.clientY, currentElement);
