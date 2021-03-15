@@ -37,7 +37,7 @@ btnAppend.addEventListener("click", (e) => {
   taskList.addEventListener("dragend", (evt) => {
     evt.target.classList.remove("selected");
   });
-  
+
   taskList.addEventListener("dragover", (evt) => {
     evt.preventDefault();
 
@@ -54,14 +54,15 @@ btnAppend.addEventListener("click", (e) => {
       // Получаем объект с размерами и координатами
       const currentElementCoord = currentElement.getBoundingClientRect();
       // Находим вертикальную координату центра текущего элемента
-      console.log(currentElement.getBoundingClientRect());
-      const currentElementCenter = currentElementCoord.y + currentElementCoord.height / 2;
-    
+      const currentElementCenter =
+        currentElementCoord.y + currentElementCoord.height / 2;
+
       // Если курсор выше центра элемента, возвращаем текущий элемент
       // В ином случае — следующий DOM-элемент
-      const nextElement = (cursorPosition < currentElementCenter) ?
-          currentElement :
-          currentElement.nextElementSibling;
+      const nextElement =
+        cursorPosition < currentElementCenter
+          ? currentElement
+          : currentElement.nextElementSibling;
       return nextElement;
     };
     // evt.clientY — вертикальная координата курсора в момент,
