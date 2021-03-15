@@ -69,12 +69,12 @@ input {
   align-items: center;
   justify-content: center;
   display: flex;
-  right: 10px;
+  right: 8px;
   position: relative;
   width: 40px;
-  height: 39px;
+  height: 40px;
   background-color: #9953f1;
-  border-radius: 71px;
+  border-radius: 50px;
   font-style: border;
 }
 #box-btn-append:hover .icon-plus {
