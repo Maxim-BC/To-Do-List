@@ -63,22 +63,6 @@ btnAppend.addEventListener("click", (e) => {
     // Вставляем activeElement перед nextElement
     taskList.insertBefore(activeElement, nextElement);
   });
-
-  const getNextElement = (cursorPosition, currentElement) => {
-    // Получаем объект с размерами и координатами
-    const currentElementCoord = currentElement.getBoundingClientRect();
-    // Находим вертикальную координату центра текущего элемента
-    const currentElementCenter =
-      currentElementCoord.y + currentElementCoord.height / 2;
-    // Если курсор выше центра элемента, возвращаем текущий элемент
-    // В ином случае — следующий DOM-элемент
-    const nextElement =
-      cursorPosition < currentElementCenter
-        ? currentElement
-        : currentElement.nextElementSibling;
-
-    return nextElement;
-  };
 });
 //---------------------------------------------------------------------------------------------
 
