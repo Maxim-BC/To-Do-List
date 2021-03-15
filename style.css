@@ -24,7 +24,7 @@ h1 {
 .card {
   width: 336px;
   border-radius: 10px;
-  border: 1px solid grey;
+  border: 1px solid #c4c4c4;
 }
 
 .window-input {
@@ -40,7 +40,6 @@ h1 {
   padding-left: 27px;
   margin: 13px 22px 18px 28px;
   border-radius: 10px;
-
 }
 
 input {
