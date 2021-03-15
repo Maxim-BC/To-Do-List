@@ -37,34 +37,49 @@ btnAppend.addEventListener("click", (e) => {
   taskList.addEventListener("dragend", (evt) => {
     evt.target.classList.remove("selected");
   });
-
+  
   taskList.addEventListener("dragover", (evt) => {
-    // Разрешаем сбрасывать элементы в эту область
     evt.preventDefault();
-    // Находим перемещаемый элемент
+
     const activeElement = taskList.querySelector(".selected");
-    // Находим элемент, над которым в данный момент находится курсор
     const currentElement = evt.target;
-    // Проверяем, что событие сработало:
-    // 1. не на том элементе, который мы перемещаем,
-    // 2. именно на элементе списка
     const isMoveable =
       activeElement !== currentElement &&
       currentElement.classList.contains("task-string");
-    // Если нет, прерываем выполнение функции
     if (!isMoveable) {
       return;
     }
-    // Находим элемент, перед которым будем вставлять
-    const nextElement =
-      currentElement === activeElement.nextElementSibling
-        ? currentElement.nextElementSibling
-        : currentElement;
-    // Вставляем activeElement перед nextElement
+
+    const getNextElement = (cursorPosition, currentElement) => {
+      // Получаем объект с размерами и координатами
+      const currentElementCoord = currentElement.getBoundingClientRect();
+      // Находим вертикальную координату центра текущего элемента
+      console.log(currentElement.getBoundingClientRect());
+      const currentElementCenter = currentElementCoord.y + currentElementCoord.height / 2;
+    
+      // Если курсор выше центра элемента, возвращаем текущий элемент
+      // В ином случае — следующий DOM-элемент
+      const nextElement = (cursorPosition < currentElementCenter) ?
+          currentElement :
+          currentElement.nextElementSibling;
+      return nextElement;
+    };
+    // evt.clientY — вертикальная координата курсора в момент,
+    // когда сработало событие
+    const nextElement = getNextElement(evt.clientY, currentElement);
+    // Проверяем, нужно ли менять элементы местами
+    if (
+      (nextElement && activeElement === nextElement.previousElementSibling) ||
+      activeElement === nextElement
+    ) {
+      // Если нет, выходим из функции, чтобы избежать лишних изменений в DOM
+      return;
+    }
     taskList.insertBefore(activeElement, nextElement);
   });
 });
-//---------------------------------------------------------------------------------------------
+
+//--------------------------------------Button delete-------------------------------------------------------
 
 function deleteTask(element) {
   const parentEl = element.parentElement;
