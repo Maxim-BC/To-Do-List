@@ -40,7 +40,7 @@ h1 {
   padding-left: 27px;
   margin: 13px 22px 18px 28px;
   border-radius: 10px;
-  border: 1px solid grey;
+
 }
 
 input {
@@ -51,7 +51,6 @@ input {
 }
 .btn-append {
   cursor: pointer;
-  justify-content: space-around;
   align-items: center;
   display: flex;
   font-size: 14px;
@@ -62,14 +61,16 @@ input {
   width: 150px;
   height: 42px;
   background-color: #833ae0;
-  border-radius: 71px;
+  border-radius: 50px;
+  border: 1px solid;
   color: white;
 }
 .icon-plus {
+  margin-right: 8px;
   align-items: center;
   justify-content: center;
   display: flex;
-  right: 17px;
+  right: 10px;
   position: relative;
   width: 40px;
   height: 39px;
@@ -84,6 +85,7 @@ input {
   background-color: #9953f1;
 }
 .btn-delete {
+  box-sizing: border-box;
   cursor: pointer;
   margin: 5px 30px 7px 10px;
   display: flex;
@@ -125,9 +127,9 @@ input {
 .task-string {
   display: flex;
   border: 1px solid #c4c4c4;
-  width: 283px;
+  width: 284px;
   position: relative;
-  right: 27px;
+  right: 28px;
   transition: background-color 0.5s;
 }
 
