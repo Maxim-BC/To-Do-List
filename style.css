@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 body {
-  font-family: Roboto;
+  font-family:'Roboto', sans-serif;
   font-style: normal;
   display: flex;
   flex-direction: column;
@@ -30,6 +30,7 @@ h2 {
 .window-input {
   padding-left: 27px;
   cursor: -moz-grab;
+  cursor: grab;
   min-width: 200px;
   min-height: 30px;
   height: auto;
@@ -61,7 +62,7 @@ input {
   height: 42px;
   background-color: #833ae0;
   border-radius: 50px;
-  border: 1px solid;
+  border: none;
   color: white;
 }
 .icon-plus {
