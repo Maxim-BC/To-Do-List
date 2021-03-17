@@ -14,7 +14,7 @@ body {
   margin-bottom: 100px;
 }
 
-h1 {
+h2 {
   margin-top: 13px;
   margin-bottom: 16px;
   font-size: 26px;
@@ -113,10 +113,6 @@ input {
 
 #sort-btn-down:hover {
   opacity: 1;
-}
-
-.hideOfBorder {
-  border: 0px;
 }
 
 .selected {
