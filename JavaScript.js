@@ -1,5 +1,3 @@
-const form = document.querySelector("form");
-const btnDelete = document.querySelector(".btn-delete");
 const btnAppend = document.querySelector(".btn-append");
 const btnSort = document.querySelector("#sort-btn-down");
 const taskList = document.querySelector(".task-list");
