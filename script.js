@@ -2,7 +2,16 @@ const btnAppend = document.querySelector(".btn-append");
 const btnSort = document.querySelector("#sort-btn-down");
 const taskList = document.querySelector(".task-list");
 
-btnAppend.addEventListener("click", (e) => {
+function deleteTask(element) {
+  if (taskList.children.length === 0) {
+    taskList.classList.remove("task-list");
+    taskList.innerText = "The to-do list is empty...";
+  }
+  element.remove();
+}
+addTask();
+btnAppend.onclick = addTask;
+function addTask() {
   if (taskList.children.length === 0) {
     taskList.innerText = "";
     taskList.classList.add("task-list");
@@ -14,13 +23,23 @@ btnAppend.addEventListener("click", (e) => {
   newLi.append(newInput);
 
   newInput.classList.add("window-input");
+  newLi.classList.add("task-string");
+
+  //--------------------------------------Button delete-------------------------------------------------------
 
   let newBtnDelete = document.createElement("button");
   newBtnDelete.innerHTML = "&times;";
-  newBtnDelete.setAttribute("onclick", "deleteTask(this)");
   newLi.append(newBtnDelete);
   newBtnDelete.classList.add("btn-delete");
-  newLi.classList.add("task-string");
+  newBtnDelete.addEventListener("click", (event) => {
+    const parentEl = event.target.parentElement;
+    deleteTask(parentEl);
+  });
+
+  const btnDelete = document.querySelectorAll(".btn-delete");
+  btnDelete.forEach((element) => {
+    element.addEventListener("click", deleteTask);
+  });
 
   //-------------------------------DRAG & DROP----------------------------------------//
 
@@ -76,17 +95,6 @@ btnAppend.addEventListener("click", (e) => {
     }
     taskList.insertBefore(activeElement, nextElement);
   });
-});
-
-//--------------------------------------Button delete-------------------------------------------------------
-
-function deleteTask(element) {
-  const parentEl = element.parentElement;
-  if (taskList.children.length === 1) {
-    taskList.classList.remove("task-list");
-    taskList.innerText = "The to-do list is empty...";
-  }
-  parentEl.remove();
 }
 
 //--------------------------------------SORT------------------------------------------------
