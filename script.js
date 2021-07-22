@@ -9,6 +9,7 @@ function deleteTask(element) {
   }
   element.remove();
 }
+
 addTask();
 btnAppend.onclick = addTask;
 function addTask() {
